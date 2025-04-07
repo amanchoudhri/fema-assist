@@ -1,0 +1,32 @@
+datasets:
+  declarations:
+    path: declarations.json
+    type: file
+
+default_model: gemini/gemini-2.0-flash
+
+system_prompt:
+  dataset_description: A collection of disaster declaration requests submitted to FEMA.
+
+operations:
+  - name: parse_page_one
+    type: map
+    pdf_url_key: pdf_path
+    output:
+      schema:
+        request_date: str
+        state_or_tribe: str
+    prompt: |
+      Parse the information from the following completed form submitted to FEMA.
+      Format all dates as YYYY-MM-DD.
+
+pipeline:
+  steps:
+    - name: parse_declarations
+      input: declarations
+      operations:
+        - parse_page_one
+  output:
+    type: file
+    path: declaration_info.json
+    intermediate_dir: intermediate_results
