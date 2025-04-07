@@ -1,7 +1,7 @@
 datasets:
   declarations:
-    path: declarations.json
     type: file
+    path: "test_docetl.json"
 
 default_model: gemini/gemini-2.0-flash
 
@@ -11,15 +11,28 @@ system_prompt:
 operations:
   - name: parse_page_one
     type: map
-    pdf_url_key: pdf_path
+    pdf_url_key: "page_1"
+    prompt: |
+      Extract information from the attached page of a completed
+      form submitted to FEMA.
+
+      Format all dates as "YYYY-MM-DD".
     output:
       schema:
-        request_date: str
-        state_or_tribe: str
-    prompt: |
-      Parse the information from the following completed form submitted to FEMA.
-      Format all dates as YYYY-MM-DD.
-
+        request_date: string
+        state_or_tribe: string
+        request_purpose: enum[Major Disaster, Emergency]
+        incident_start_date: string
+        incident_end_date: string
+        incident_type: "list[enum[
+          Drought, Earthquake, Explosion, Fire, Severe Storm, Flood, Hurricane,
+          Landslide, Mudslide, Snowstorm, Straight-Line Winds, Tidal Wave,
+          Tornado, Tropical Depression, Tropical Storm, Tsunami, Volcanic Eruption,
+          Winter Storm, Other]
+          ]"
+        incident_type_other: string
+        damage_description: string
+        resource_description: string
 pipeline:
   steps:
     - name: parse_declarations
@@ -28,5 +41,5 @@ pipeline:
         - parse_page_one
   output:
     type: file
-    path: declaration_info.json
-    intermediate_dir: intermediate_results
+    path: "results.json"
+    intermediate_dir: "intermediate_results"
