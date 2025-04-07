@@ -4,6 +4,10 @@ version = "0.1.0"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "docetl>=0.2.2",
+    "docetl==0.2.2",
     "pandas>=2.2.3",
+    "pypdf2>=3.0.1",
 ]
+
+[tool.uv.sources]
+docetl = { git = "https://github.com/ucbepic/docetl" }
