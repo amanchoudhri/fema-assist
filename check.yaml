@@ -1,0 +1,160 @@
+default_model: gemini/gemini-2.0-flash
+
+system_prompt:
+  dataset_description: A collection of parsed FEMA disaster declaration forms with their original PDFs
+  persona: An expert evaluator checking thoroughly for parsing accuracy
+
+datasets:
+  form_results:
+    type: file
+    path: "test_results.json"
+
+operations:
+  - name: pull_filtered_json
+    type: code_map
+    code: |
+      def transform(doc) -> dict:
+        """
+        Given a dictionary representation of a parsed document,
+        return only the keys corresponding to form fields.
+        """
+        exclude = [
+          'uuid', 'file_path', 'original_filename', 'import_date',
+          'page_count', 'pages', 'page_1', 'page_2', 'page_3', 'page_4'
+        ]
+        filtered = {}
+        for key, value in doc.items():
+          if key not in exclude:
+            filtered[key] = value
+        return {'filtered_json': filtered}
+
+  - name: evaluate_form_accuracy
+    type: map
+    pdf_url_key: "file_path"
+    prompt: |
+      I need you to verify the accuracy of parsed fields from a FEMA disaster declaration form.
+
+      # Task
+      Compare the parsed JSON data with the original PDF form to check accuracy field-by-field.
+
+      # JSON Data
+      ```json
+      {{ input.filtered_json }}
+      ```
+
+      # Instructions
+      1. Check each field in the JSON against what appears in the actual PDF form
+      2. For each field, provide:
+         - Accuracy: TRUE if correct, FALSE if incorrect or missing
+         - Discussion: Brief explanation if incorrect, or "Correctly captured" if correct
+      
+      # Key Fields to Verify
+      - Basic Form Information:
+        - request_date, form_version_date, state_or_tribe, request_purpose
+      
+      - Incident Information:
+        - incident_start_date, incident_end_date, incident_type, incident_type_other_details
+      
+      - Content Fields:
+        - damage_description, resource_description
+      
+      - Individual Assistance Fields (if applicable):
+        - ia_requested, ia_request_date, ia_start_date, ia_end_date
+        - ia_accessibility_problems, ia_requested_programs, ia_programs_needed_per_area
+        - ia_affected_tribes
+      
+      - Public Assistance Fields (if applicable):
+        - pa_requested, pa_request_date, pa_start_date, pa_end_date
+        - pa_accessibility_problems, pa_programs_needed_per_area, pa_affected_tribes
+        - pa_categories_requested
+      
+      - Other Fields:
+        - debris_removal_needed, direct_federal_assistance_requested
+        - hazard_mitigation_statewide, hazard_mitigation_specific_areas
+        - mitigation_plan_expiration_date, mitigation_plan_type
+        - supporting_documentation
+      
+      # Common Errors to Check For
+      - Logical errors: form field text assigned to incorrect variables
+      - Boolean errors: checkboxes incorrectly marked (true/false)
+      - Incomplete information: missing selected checkbox values
+      - Transcription errors: malformed text that should be transcribed perfectly
+      - Empty field errors: writing the form field PROMPT in place of the empty string or N/A.
+      
+      # Response Format
+      Follow this EXACT format for your response:
+
+      <FIELD field_name>
+           is_accurate: [TRUE/FALSE]
+           discussion: [Discussion]
+      </FIELD>
+
+      (Repeat for each field)
+      
+      IMPORTANT: Use ONLY the format above. Do not include any greeting, introduction, or additional text.
+    output:
+      schema:
+        analysis: str
+
+  - name: split_field_analyses
+    type: split
+    method: delimiter
+    split_key: analysis
+    method_kwargs:
+      delimiter: '</FIELD>'
+
+  - name: parse_field_analysis
+    type: map
+    prompt: |
+      Extract the field name, accuracy, and discussion from this field analysis:
+      
+      {{ input.analysis_chunk }}
+    output:
+      schema:
+        field_name: string
+        is_accurate: boolean
+        discussion: string
+
+  - name: aggregate_results
+    type: code_reduce
+    reduce_key: uuid
+    code: |
+      def transform(items) -> dict:
+          # Calculate accuracy stats
+          total_fields = len(items)
+          accurate_fields = sum(1 for item in items if item.get('is_accurate', False))
+          accuracy_score = accurate_fields / total_fields if total_fields > 0 else 0
+
+
+          results = []
+          for item in items:
+            result = {k: item[k] for k in ['field_name', 'is_accurate', 'discussion']}
+            result['field_value'] = item[item['field_name']]
+            results.append(result)
+          
+          # Return the final evaluation result
+          return {
+              "field_analyses": results,
+              "accuracy_score": accuracy_score,
+              "accurate_fields": accurate_fields,
+              "total_fields": total_fields,
+              "uuid": items[0].get("uuid", "") if items else "",
+              "original_filename": items[0].get("original_filename", "") if items else "",
+              "file_path": items[0].get("file_path", "") if items else "",
+              "pages": items[0].get("pages", []) if items else []
+          }
+
+pipeline:
+  steps:
+    - name: fema_form_evaluation
+      input: form_results
+      operations:
+        - pull_filtered_json
+        - evaluate_form_accuracy
+        - split_field_analyses
+        - parse_field_analysis
+        - aggregate_results
+  output:
+    type: file
+    path: "eval-2025-04-08.json"
+    intermediate_dir: "evaluation_intermediates"
