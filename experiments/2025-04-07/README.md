@@ -4,7 +4,7 @@ Set up and tested a first-pass structured data extraction pipeline for the FEMA 
 declaration request forms (Form 010-0-13), using DocETL.
 
 ## Pipeline
-- Model: `gemini-2.0-flash`
+- Model: `gemini-2.0-flash`, so we can use native PDF understanding (intuition says that should let us do better on checkboxes)
 - Pipeline separates out PDF page-by-page; manually defines schema for forms on each page.
   For example:
     ```yaml
@@ -39,11 +39,14 @@ declaration request forms (Form 010-0-13), using DocETL.
 
 ## Test Details
 - Tried running pipeline on 3 forms from [full disaster declarations pdf](https://www.governmentattic.org/34docs/FEMAform010-0-13_2017-2019.pdf) (pages 1-4, 5-8, 9-12)
+- Forms are in `./test-forms`
 
 ## Results
 Seems like even one-page chunked tasks are still a little difficult. A few important logical errors, mostly with checkboxes.
 - Checkbox errors: `direct_federal_assistance_requested` incorrectly set to true in form 1
 - Some empty fields were filled with their labels: `direct_federal_assistance_types` in form 1, `hazard_mitigation_specific_areas` in form 2
+
+Actual parsed JSON output from DocETL available in `./parsing-results`.
 
 ## Thoughts
 By and large pretty great. Seems like our main errors are on the checkbox
