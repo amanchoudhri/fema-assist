@@ -13,33 +13,144 @@ operations:
     type: map
     pdf_url_key: "page_1"
     prompt: |
-      Extract information from the attached page of a completed
-      form submitted to FEMA.
+      Extract the following information from this FEMA form page regarding basic
+      request origin and purpose, incident and damage details, and the month/year
+      version of the form.
 
-      Format all dates as "YYYY-MM-DD".
+      Also, extract the form version from the bottom left corner of the page; it is
+      formatted as (M/YY).
+
+      Format all dates as "YYYY-MM-DD". If no date is available, format as "YYYY-MM".
+
+      Important notes on some output fields:
+        - `incident_type_other_details` should be left blank unless form 7b has "Other"
+          checked; in this case, transcribe exactly what is specified on the blank line.
+        - `damage_description` should be a word-for-word transcription of
+          what is written in form field 8 (Description of damages)
+        - `resource_description` should be a word-for-word transcription of
+          what is written in form field 9 (Description of the nature and amount...)
     output:
       schema:
+        form_version_date: string
         request_date: string
         state_or_tribe: string
         request_purpose: enum[Major Disaster, Emergency]
         incident_start_date: string
         incident_end_date: string
         incident_type: "list[enum[
-          Drought, Earthquake, Explosion, Fire, Severe Storm, Flood, Hurricane,
-          Landslide, Mudslide, Snowstorm, Straight-Line Winds, Tidal Wave,
-          Tornado, Tropical Depression, Tropical Storm, Tsunami, Volcanic Eruption,
-          Winter Storm, Other]
-          ]"
-        incident_type_other: string
+          Drought, Earthquake, Explosion, Fire, Flood, Hurricane, Landslide, Mudslide,
+          Severe Storm, Snowstorm, Straight-Line Winds,
+          Tidal Wave, Tornado, Tropical Depression, Tropical Storm, Tsunami,
+          Volcanic Eruption, Winter Storm, Other
+          ]]"
+        incident_type_other_details: string
         damage_description: string
         resource_description: string
+
+  - name: parse_page_two
+    type: map
+    pdf_url_key: "page_2"
+    prompt: |
+      Extract the following information from this FEMA form page regarding Joint 
+      Preliminary Damage Assessment and Programs/Areas Requested.
+      
+      Format all dates as YYYY-MM-DD.
+      Extract information about accessibility problems, requested programs, and 
+      affected jurisdictions.
+    output:
+      schema:
+        ia_requested: bool
+        ia_request_date: string
+        ia_start_date: string
+        ia_end_date: string
+        ia_accessibility_problems: string
+
+        pa_requested: bool
+        pa_request_date: string
+        pa_start_date: string
+        pa_end_date: string
+        pa_accessibility_problems: string
+
+        ia_requested_programs: "list[enum[
+          N/A, Individuals and Households Program, Crisis Counseling Program,
+          Disaster Unemployment Assistance, Disaster Case Management,
+          Disaster Legal Services, Small Business Administration Disaster Assistance,
+          All
+          ]]"
+        ia_programs_needed_per_area: string
+        ia_affected_tribes: string
+
+  - name: parse_page_three
+    type: map
+    pdf_url_key: "page_3"
+    prompt: |
+      Extract the following information from this FEMA form page regarding 
+      Public Assistance, Debris Removal, Direct Federal Assistance, and 
+      Snow Assistance requests.
+      
+      For boolean fields, return true if the option is checked/selected and false if not.
+    output:
+      schema:
+        pa_categories_requested: "list[enum[
+          N/A, Debris Removal (Category A), 
+          Emergency Protective Measures (Category B),
+          Permanent Work (Categories C-G)
+          ]]"
+        pa_programs_needed_per_area: string
+        pa_affected_tribes: string
+        
+        debris_removal_needed: boolean
+        
+        direct_federal_assistance_requested: boolean
+        direct_federal_assistance_types: string
+        direct_federal_assistance_reasons: string
+        
+        snow_assistance_requested: boolean
+        snow_assistance_jurisdictions: string
+
+  - name: parse_page_four
+    type: map
+    pdf_url_key: "page_4"
+    prompt: |
+      Extract the following information from this FEMA form page regarding 
+      Hazard Mitigation, Mitigation Plan Information, Other Federal Agency Programs, 
+      Findings and Certifications, and Supporting Documentation.
+      
+      Format all dates as YYYY-MM-DD.
+      For boolean fields, return true if the option is checked/selected and false if not.
+    output:
+      schema:
+        hazard_mitigation_statewide: boolean
+        hazard_mitigation_specific_areas: string
+        
+        mitigation_plan_expiration_date: string
+        mitigation_plan_type: enum[Enhanced, Standard]
+        
+        other_agency_requirements_anticipated: boolean
+        
+        certification_completed: boolean
+        emergency_plan_execution_date: string
+        
+        supporting_documentation: "list[enum[
+          Cover Letter, 
+          Enclosure A (Individual Assistance), 
+          Enclosure B (Public Assistance),
+          Enclosure C (Requirements for Other Federal Agency Programs),
+          Enclosure D (Historic and Current Snowfall Data),
+          Additional Supporting Documentation
+          ]]"
+        additional_documentation_details: string
+
 pipeline:
   steps:
     - name: parse_declarations
       input: declarations
       operations:
         - parse_page_one
+        - parse_page_two
+        - parse_page_three
+        - parse_page_four
   output:
     type: file
-    path: "results.json"
+    path: "test_results.json"
     intermediate_dir: "intermediate_results"
