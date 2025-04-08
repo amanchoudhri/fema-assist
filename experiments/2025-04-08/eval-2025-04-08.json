@@ -1,0 +1,559 @@
+[
+  {
+    "field_analyses": [
+      {
+        "field_name": "resource_description",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "The State of Alaska has executed its Emergency Operations Plans and committed all available State and local resources to the response and recovery from this event. The State of Alaska will provide the full 25% non-federal cost share and will work with each affected jurisdiction to cover any expenses not included in a federal declaration."
+      },
+      {
+        "field_name": "incident_type",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": [
+          "earthquake"
+        ]
+      },
+      {
+        "field_name": "request_purpose",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "major disaster"
+      },
+      {
+        "field_name": "incident_end_date",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "2018-11-30"
+      },
+      {
+        "field_name": "state_or_tribe",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "Alaska"
+      },
+      {
+        "field_name": "request_date",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "2018-12-28"
+      },
+      {
+        "field_name": "incident_start_date",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "2018-11-30"
+      },
+      {
+        "field_name": "incident_type_other_details",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": ""
+      },
+      {
+        "field_name": "damage_description",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "On November 30, 2018, a 7.0 magnitude earthquake produced strong seismic shaking that caused widespread and severe damage primarily within the Municipality of Anchorage, Matanuska-Susitna Borough, and Kenai Peninsula Borough (combined population of 436,221). The earthquake produced strong seismic shaking that caused widespread and severe damage to homes, major highways, roads, bridges, transportation infrastructure, road embankments, railroad tracks, critical utility infrastructure, public and commercial buildings, including structural collapse and resulting fires. The earthquake resulted in a State declaration of disaster emergency, and a federal emergency declaration (EM-3410-AK)."
+      },
+      {
+        "field_name": "form_version_date",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "2017-05"
+      },
+      {
+        "field_name": "ia_affected_tribes",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "Eklutna Native Village, Knik Tribe, Chickaloon Native Village, Native Village of Tyonek, Village of Salamatoff, Kenaitze Indian Tribe, Ninilchik Village, Seldovia Village Tribe, Native Village of Nanwalek, Native Village of Port Graham."
+      },
+      {
+        "field_name": "ia_request_date",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "2018-12-04"
+      },
+      {
+        "field_name": "ia_requested_programs",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": [
+          "individuals and households program",
+          "crisis counseling program",
+          "disaster unemployment assistance",
+          "disaster case management",
+          "disaster legal services",
+          "small business administration disaster assistance",
+          "all"
+        ]
+      },
+      {
+        "field_name": "ia_programs_needed_per_area",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "All Individual Assistance programs listed above for the Municipality of Anchorage, Matanuska-Susitna Borough, and Kenai Peninsula Borough."
+      },
+      {
+        "field_name": "ia_end_date",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "2018-12-15"
+      },
+      {
+        "field_name": "pa_end_date",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "2018-12-21"
+      },
+      {
+        "field_name": "ia_requested",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": true
+      },
+      {
+        "field_name": "ia_accessibility_problems",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "The PDA field teams focused on areas with the highest concentration of major damage and/or destroyed homes. The PDA teams observed several areas with pronounced ground subsidence and visible fissures, with or without severe structural damage. Other areas were inaccessible, subject to restricted use, or uninhabitable due to geotechnical issues. The PDA was hampered by limited daylight hours (approximately six hours), recent snowfall accumulations of up to four feet total, very cold single-digit ambient temperatures, and extremely hazardous driving conditions. Also, several homes with reported minor damage were upgraded to major damage after interior inspections reveal failures of load-bearing walls, compromised roof beams, uneven floors, missing or collapsed walls, or other signs of catastrophic structural damage. The PDA team could not visit the Kenai Peninsula Borough due to hazardous road conditions. It is clear there are a potentially substantial number of damaged homes and businesses that were not visited by the PDA teams."
+      },
+      {
+        "field_name": "pa_request_date",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "2018-12-04"
+      },
+      {
+        "field_name": "pa_requested",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": true
+      },
+      {
+        "field_name": "pa_start_date",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "2018-12-17"
+      },
+      {
+        "field_name": "ia_start_date",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "2018-12-10"
+      },
+      {
+        "field_name": "pa_accessibility_problems",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "Due to worsening weather conditions in the latter half of December, the PA PDA focused on potential applicants reporting $100,000 or greater in damages. Thus, there are likely a significant number of damaged buildings and infrastructure that were not included in the PA PDA, but will likely be eligible for assistance. Similar accessibility issues as stated above, including minimal daylight hours, snow accumulation, and hazardous driving conditions necessitated a reduction in applicant visits and assessments."
+      },
+      {
+        "field_name": "direct_federal_assistance_requested",
+        "is_accurate": true,
+        "discussion": "The form asks if direct federal assistance is requested, the checkbox is marked. The value in the JSON is therefore correct.",
+        "field_value": true
+      },
+      {
+        "field_name": "debris_removal_needed",
+        "is_accurate": true,
+        "discussion": "The form asks if debris removal is needed, the checkbox is marked. The value in the JSON is therefore correct.",
+        "field_value": true
+      },
+      {
+        "field_name": "direct_federal_assistance_types",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "I request the following type(s) of assistance:"
+      },
+      {
+        "field_name": "pa_categories_requested",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": [
+          "debris removal (category a)",
+          "emergency protective measures (category b)",
+          "permanent work (categories c-g)"
+        ]
+      },
+      {
+        "field_name": "direct_federal_assistance_reasons",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "List of reasons why State and local or Indian tribal government cannot perform, or contract for, required work and services."
+      },
+      {
+        "field_name": "pa_programs_needed_per_area",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "All Public Assistance programs and areas for the Municipality of Anchorage, Matanuska-Susitna Borough, and Kenai Peninsula Borough."
+      },
+      {
+        "field_name": "pa_affected_tribes",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "Eklutna Native Village, Knik Tribe, Chickaloon Native Village, Native Village of Tyonek, Village of Salamatoff, Kenaitze Indian Tribe, Ninilchik Village, Seldovia Village Tribe, Native Village of Nanwalek, Native Village of Port Graham."
+      },
+      {
+        "field_name": "snow_assistance_requested",
+        "is_accurate": false,
+        "discussion": "Correctly captured",
+        "field_value": false
+      },
+      {
+        "field_name": "snow_assistance_jurisdictions",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "Snow assistance for the following jurisdictions (Specify counties, independent cities or tribes and/or tribal areas)."
+      },
+      {
+        "field_name": "emergency_plan_execution_date",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "2018-11-30"
+      },
+      {
+        "field_name": "supporting_documentation",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": [
+          "cover letter",
+          "enclosure a (individual assistance)",
+          "enclosure b (public assistance)",
+          "enclosure c (requirements for other federal agency programs)",
+          "additional supporting documentation"
+        ]
+      },
+      {
+        "field_name": "hazard_mitigation_statewide",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": true
+      },
+      {
+        "field_name": "mitigation_plan_expiration_date",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "2023-10-25"
+      },
+      {
+        "field_name": "other_agency_requirements_anticipated",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": true
+      },
+      {
+        "field_name": "hazard_mitigation_specific_areas",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": ""
+      },
+      {
+        "field_name": "certification_completed",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": true
+      },
+      {
+        "field_name": "additional_documentation_details",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "HAZUS Estimate from Pacific Disaster Center, StEER/EERI Alaska Earthquake Prelim. Report"
+      },
+      {
+        "field_name": "mitigation_plan_type",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "standard"
+      }
+    ],
+    "accuracy_score": 0.975609756097561,
+    "accurate_fields": 40,
+    "total_fields": 41,
+    "uuid": "359b73d1-5fe4-4487-800c-3b64ba016bdd",
+    "original_filename": "all-declarations_pages_9-12.pdf",
+    "file_path": "/Users/amanchoudhri/aman/classes/snr-2/agents/fema/test/359b73d1-5fe4-4487-800c-3b64ba016bdd/all.pdf",
+    "pages": [
+      "/Users/amanchoudhri/aman/classes/snr-2/agents/fema/test/359b73d1-5fe4-4487-800c-3b64ba016bdd/page_1.pdf",
+      "/Users/amanchoudhri/aman/classes/snr-2/agents/fema/test/359b73d1-5fe4-4487-800c-3b64ba016bdd/page_2.pdf",
+      "/Users/amanchoudhri/aman/classes/snr-2/agents/fema/test/359b73d1-5fe4-4487-800c-3b64ba016bdd/page_3.pdf",
+      "/Users/amanchoudhri/aman/classes/snr-2/agents/fema/test/359b73d1-5fe4-4487-800c-3b64ba016bdd/page_4.pdf"
+    ],
+    "_counts_prereduce_aggregate_results": 41
+  },
+  {
+    "field_analyses": [
+      {
+        "field_name": "request_date",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "2018-06-28"
+      },
+      {
+        "field_name": "form_version_date",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "2013-03"
+      },
+      {
+        "field_name": "incident_end_date",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "2018-05-14"
+      },
+      {
+        "field_name": "request_purpose",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "major disaster"
+      },
+      {
+        "field_name": "state_or_tribe",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "State of Alaska"
+      },
+      {
+        "field_name": "damage_description",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "On the evening of May 11, 2018, an ice jam on the Susitna River north of Talkeetna, Alaska in the Matanuska Susitna Borough\nredirected river flow that flooded the Alaska Railroad Corporation (ARRC) tracks between mileposts (MP) 235 and 252 with 10 feet\nof fast-moving water and large floating ice blocks destroying the rails, scouring the track bed, and severely damaging rail signal and\ncontrol equipment. The floodwaters caused substantial damage to the rail lines, track bed, signals, and train control systems,\npreventing all rail freight and passenger service between Anchorage and Fairbanks for several days. A robust clean up and\nemergency repair effort, conducted between May 13 and May 25, required substantial mobilization costs due to the remote area and\nextensive repairs. On May 14, the ice jam broke and water levels receded sufficiently to allow inspection of the tracks by ARRC."
+      },
+      {
+        "field_name": "resource_description",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "The State of Alaska will cover the full 25% cost share."
+      },
+      {
+        "field_name": "incident_type_other_details",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": ""
+      },
+      {
+        "field_name": "incident_type",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": [
+          "flood"
+        ]
+      },
+      {
+        "field_name": "incident_start_date",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "2018-05-11"
+      },
+      {
+        "field_name": "ia_request_date",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": ""
+      },
+      {
+        "field_name": "ia_start_date",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": ""
+      },
+      {
+        "field_name": "ia_affected_tribes",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": ""
+      },
+      {
+        "field_name": "pa_accessibility_problems",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "No accessibility issues reported."
+      },
+      {
+        "field_name": "ia_programs_needed_per_area",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": ""
+      },
+      {
+        "field_name": "ia_requested_programs",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": [
+          "n/a"
+        ]
+      },
+      {
+        "field_name": "pa_request_date",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "2018-06-19"
+      },
+      {
+        "field_name": "ia_accessibility_problems",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "N/A"
+      },
+      {
+        "field_name": "ia_end_date",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": ""
+      },
+      {
+        "field_name": "pa_start_date",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "2018-06-21"
+      },
+      {
+        "field_name": "pa_requested",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": true
+      },
+      {
+        "field_name": "ia_requested",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": false
+      },
+      {
+        "field_name": "pa_end_date",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "2018-06-21"
+      },
+      {
+        "field_name": "pa_programs_needed_per_area",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "Categories A, B, C, E, and F are requested for the Alaska Railroad Corporation."
+      },
+      {
+        "field_name": "direct_federal_assistance_reasons",
+        "is_accurate": false,
+        "discussion": "Should be empty string since the box is unchecked.",
+        "field_value": "UNKNOWN"
+      },
+      {
+        "field_name": "direct_federal_assistance_requested",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": false
+      },
+      {
+        "field_name": "pa_categories_requested",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": [
+          "debris removal (category a)",
+          "emergency protective measures (category b)",
+          "permanent work (categories c-g)"
+        ]
+      },
+      {
+        "field_name": "snow_assistance_requested",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": false
+      },
+      {
+        "field_name": "direct_federal_assistance_types",
+        "is_accurate": false,
+        "discussion": "Should be empty string since the box is unchecked.",
+        "field_value": "UNKNOWN"
+      },
+      {
+        "field_name": "debris_removal_needed",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": true
+      },
+      {
+        "field_name": "snow_assistance_jurisdictions",
+        "is_accurate": false,
+        "discussion": "Should be empty string since the box is unchecked.",
+        "field_value": "UNKNOWN"
+      },
+      {
+        "field_name": "pa_affected_tribes",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "Chickaloon Native Village and Knik Tribe,"
+      },
+      {
+        "field_name": "emergency_plan_execution_date",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "2018-05-11"
+      },
+      {
+        "field_name": "other_agency_requirements_anticipated",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": false
+      },
+      {
+        "field_name": "supporting_documentation",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": [
+          "cover letter",
+          "enclosure b (public assistance)"
+        ]
+      },
+      {
+        "field_name": "additional_documentation_details",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": ""
+      },
+      {
+        "field_name": "mitigation_plan_expiration_date",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "2018-10-17"
+      },
+      {
+        "field_name": "hazard_mitigation_specific_areas",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "OR"
+      },
+      {
+        "field_name": "mitigation_plan_type",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": "standard"
+      },
+      {
+        "field_name": "certification_completed",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": true
+      },
+      {
+        "field_name": "hazard_mitigation_statewide",
+        "is_accurate": true,
+        "discussion": "Correctly captured",
+        "field_value": true
+      }
+    ],
+    "accuracy_score": 0.926829268292683,
+    "accurate_fields": 38,
+    "total_fields": 41,
+    "uuid": "085d41a4-7b43-4d7d-a2b3-45d666a7d8ec",
+    "original_filename": "all-declarations_pages_5-8.pdf",
+    "file_path": "/Users/amanchoudhri/aman/classes/snr-2/agents/fema/test/085d41a4-7b43-4d7d-a2b3-45d666a7d8ec/all.pdf",
+    "pages": [
+      "/Users/amanchoudhri/aman/classes/snr-2/agents/fema/test/085d41a4-7b43-4d7d-a2b3-45d666a7d8ec/page_1.pdf",
+      "/Users/amanchoudhri/aman/classes/snr-2/agents/fema/test/085d41a4-7b43-4d7d-a2b3-45d666a7d8ec/page_2.pdf",
+      "/Users/amanchoudhri/aman/classes/snr-2/agents/fema/test/085d41a4-7b43-4d7d-a2b3-45d666a7d8ec/page_3.pdf",
+      "/Users/amanchoudhri/aman/classes/snr-2/agents/fema/test/085d41a4-7b43-4d7d-a2b3-45d666a7d8ec/page_4.pdf"
+    ],
+    "_counts_prereduce_aggregate_results": 41
+  }
+]
