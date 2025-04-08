@@ -1,0 +1,69 @@
+{
+    "uuid": "085d41a4-7b43-4d7d-a2b3-45d666a7d8ec",
+    "original_filename": "all-declarations_pages_5-8.pdf",
+    "import_date": "2025-04-07T16:51:18.182979",
+    "page_count": 4,
+    "file_path": "/Users/amanchoudhri/aman/classes/snr-2/agents/fema/test/085d41a4-7b43-4d7d-a2b3-45d666a7d8ec/all.pdf",
+    "pages": [
+      "/Users/amanchoudhri/aman/classes/snr-2/agents/fema/test/085d41a4-7b43-4d7d-a2b3-45d666a7d8ec/page_1.pdf",
+      "/Users/amanchoudhri/aman/classes/snr-2/agents/fema/test/085d41a4-7b43-4d7d-a2b3-45d666a7d8ec/page_2.pdf",
+      "/Users/amanchoudhri/aman/classes/snr-2/agents/fema/test/085d41a4-7b43-4d7d-a2b3-45d666a7d8ec/page_3.pdf",
+      "/Users/amanchoudhri/aman/classes/snr-2/agents/fema/test/085d41a4-7b43-4d7d-a2b3-45d666a7d8ec/page_4.pdf"
+    ],
+    "page_1": "/Users/amanchoudhri/aman/classes/snr-2/agents/fema/test/085d41a4-7b43-4d7d-a2b3-45d666a7d8ec/page_1.pdf",
+    "page_2": "/Users/amanchoudhri/aman/classes/snr-2/agents/fema/test/085d41a4-7b43-4d7d-a2b3-45d666a7d8ec/page_2.pdf",
+    "page_3": "/Users/amanchoudhri/aman/classes/snr-2/agents/fema/test/085d41a4-7b43-4d7d-a2b3-45d666a7d8ec/page_3.pdf",
+    "page_4": "/Users/amanchoudhri/aman/classes/snr-2/agents/fema/test/085d41a4-7b43-4d7d-a2b3-45d666a7d8ec/page_4.pdf",
+    "request_date": "2018-06-28",
+    "form_version_date": "2013-03",
+    "incident_end_date": "2018-05-14",
+    "request_purpose": "major disaster",
+    "state_or_tribe": "State of Alaska",
+    "damage_description": "On the evening of May 11, 2018, an ice jam on the Susitna River north of Talkeetna, Alaska in the Matanuska Susitna Borough\nredirected river flow that flooded the Alaska Railroad Corporation (ARRC) tracks between mileposts (MP) 235 and 252 with 10 feet\nof fast-moving water and large floating ice blocks destroying the rails, scouring the track bed, and severely damaging rail signal and\ncontrol equipment. The floodwaters caused substantial damage to the rail lines, track bed, signals, and train control systems,\npreventing all rail freight and passenger service between Anchorage and Fairbanks for several days. A robust clean up and\nemergency repair effort, conducted between May 13 and May 25, required substantial mobilization costs due to the remote area and\nextensive repairs. On May 14, the ice jam broke and water levels receded sufficiently to allow inspection of the tracks by ARRC.",
+    "resource_description": "The State of Alaska will cover the full 25% cost share.",
+    "incident_type_other_details": "",
+    "incident_type": [
+      "flood"
+    ],
+    "incident_start_date": "2018-05-11",
+    "ia_request_date": "",
+    "ia_start_date": "",
+    "ia_affected_tribes": "",
+    "pa_accessibility_problems": "No accessibility issues reported.",
+    "ia_programs_needed_per_area": "",
+    "ia_requested_programs": [
+      "n/a"
+    ],
+    "pa_request_date": "2018-06-19",
+    "ia_accessibility_problems": "N/A",
+    "ia_end_date": "",
+    "pa_start_date": "2018-06-21",
+    "pa_requested": true,
+    "ia_requested": false,
+    "pa_end_date": "2018-06-21",
+    "pa_programs_needed_per_area": "Categories A, B, C, E, and F are requested for the Alaska Railroad Corporation.",
+    "direct_federal_assistance_reasons": "UNKNOWN",
+    "direct_federal_assistance_requested": false,
+    "pa_categories_requested": [
+      "debris removal (category a)",
+      "emergency protective measures (category b)",
+      "permanent work (categories c-g)"
+    ],
+    "snow_assistance_requested": false,
+    "direct_federal_assistance_types": "UNKNOWN",
+    "debris_removal_needed": true,
+    "snow_assistance_jurisdictions": "UNKNOWN",
+    "pa_affected_tribes": "Chickaloon Native Village and Knik Tribe,",
+    "emergency_plan_execution_date": "2018-05-11",
+    "other_agency_requirements_anticipated": false,
+    "supporting_documentation": [
+      "cover letter",
+      "enclosure b (public assistance)"
+    ],
+    "additional_documentation_details": "",
+    "mitigation_plan_expiration_date": "2018-10-17",
+    "hazard_mitigation_specific_areas": "OR",
+    "mitigation_plan_type": "standard",
+    "certification_completed": true,
+    "hazard_mitigation_statewide": true
+}

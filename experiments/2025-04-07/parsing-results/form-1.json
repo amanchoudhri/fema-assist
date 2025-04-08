@@ -1,0 +1,69 @@
+{
+    "uuid": "1e7eba1f-d3cd-44ec-bc07-4a61fa0260f6",
+    "original_filename": "all-declarations_pages_1-4.pdf",
+    "import_date": "2025-04-07T16:51:18.196846",
+    "page_count": 4,
+    "file_path": "/Users/amanchoudhri/aman/classes/snr-2/agents/fema/test/1e7eba1f-d3cd-44ec-bc07-4a61fa0260f6/all.pdf",
+    "pages": [
+      "/Users/amanchoudhri/aman/classes/snr-2/agents/fema/test/1e7eba1f-d3cd-44ec-bc07-4a61fa0260f6/page_1.pdf",
+      "/Users/amanchoudhri/aman/classes/snr-2/agents/fema/test/1e7eba1f-d3cd-44ec-bc07-4a61fa0260f6/page_2.pdf",
+      "/Users/amanchoudhri/aman/classes/snr-2/agents/fema/test/1e7eba1f-d3cd-44ec-bc07-4a61fa0260f6/page_3.pdf",
+      "/Users/amanchoudhri/aman/classes/snr-2/agents/fema/test/1e7eba1f-d3cd-44ec-bc07-4a61fa0260f6/page_4.pdf"
+    ],
+    "page_1": "/Users/amanchoudhri/aman/classes/snr-2/agents/fema/test/1e7eba1f-d3cd-44ec-bc07-4a61fa0260f6/page_1.pdf",
+    "page_2": "/Users/amanchoudhri/aman/classes/snr-2/agents/fema/test/1e7eba1f-d3cd-44ec-bc07-4a61fa0260f6/page_2.pdf",
+    "page_3": "/Users/amanchoudhri/aman/classes/snr-2/agents/fema/test/1e7eba1f-d3cd-44ec-bc07-4a61fa0260f6/page_3.pdf",
+    "page_4": "/Users/amanchoudhri/aman/classes/snr-2/agents/fema/test/1e7eba1f-d3cd-44ec-bc07-4a61fa0260f6/page_4.pdf",
+    "incident_type": [
+      "severe storm"
+    ],
+    "request_date": "2018-01-25",
+    "form_version_date": "2018-01-25",
+    "damage_description": "On December 4, 2017 a fast moving storm system moving northward out of the Gulf of Alaska brought widespread high winds to coastal areas on both the east and west sides of the Kenai Peninsula. These high winds, gusting 30-40 mph, produced 3-4 foot waves that lasted for 4-8 hours in Seward, coinciding almost perfectly with the highest astronomical tide of the year, causing significant wave action damage to occur. Resurrection Bay in Seward experienced a 13.4 foot-high tide in conjunction with high southerly winds on December 4. This combination of events caused serious erosion to the Lowell Point Road that connects South Seward with the community of Lowell Point and the Lowell Point State Recreation Area (SRA).\n\nIn the Lower Cook Inlet area, this storm system created high winds gusting 30-40 mph, reaching a maximum wind speed of 58 mph, producing 7-10 foot waves that impacted the Cook Inlet coastline from Homer to Kenai. Two SRAs, the Anchor River SRA and the Deep Creek SRA, each sustained extensive damages to campgrounds, parking areas, boat launches, and beach areas.",
+    "incident_type_other_details": "",
+    "state_or_tribe": "State of Alaska",
+    "resource_description": "The State of Alaska will cover the full 25% cost share and will work with the Kenai Peninsula Borough to cover any expenses not included in the federal declaration.",
+    "incident_start_date": "2017-12-04",
+    "request_purpose": "major disaster",
+    "incident_end_date": "2017-12-04",
+    "ia_request_date": "N/A",
+    "pa_request_date": "2018-01-12",
+    "ia_requested_programs": [
+      "n/a"
+    ],
+    "ia_accessibility_problems": "N/A",
+    "ia_programs_needed_per_area": "N/A",
+    "pa_end_date": "2018-01-19",
+    "pa_accessibility_problems": "No accessibility issues reported.",
+    "ia_requested": false,
+    "pa_start_date": "2018-01-18",
+    "ia_end_date": "N/A",
+    "pa_requested": true,
+    "ia_affected_tribes": "N/A",
+    "ia_start_date": "N/A",
+    "snow_assistance_jurisdictions": "Snow assistance for the following jurisdictions (Specify counties, independent cities or tribes and/or tribal areas).",
+    "snow_assistance_requested": false,
+    "pa_programs_needed_per_area": "Categories A, C, D, and G are requested for the Kenai Peninsula Borough.",
+    "direct_federal_assistance_types": "I request the following type(s) of assistance:",
+    "direct_federal_assistance_reasons": "List of reasons why State and local or Indian tribal government cannot perform, or contract for, required work and services.",
+    "pa_affected_tribes": "Kenaitze Indian Tribe, Seldovia Village Tribe, Ninilchik Village, Native Village of Port Graham, Native Village of Tyonek, Village of Salamatoff",
+    "pa_categories_requested": [
+      "debris removal (category a)",
+      "permanent work (categories c-g)"
+    ],
+    "direct_federal_assistance_requested": true,
+    "debris_removal_needed": true,
+    "hazard_mitigation_statewide": true,
+    "supporting_documentation": [
+      "cover letter",
+      "enclosure b (public assistance)",
+      "enclosure c (requirements for other federal agency programs)"
+    ],
+    "other_agency_requirements_anticipated": false,
+    "emergency_plan_execution_date": "2017-12-04",
+    "certification_completed": true,
+    "additional_documentation_details": "",
+    "mitigation_plan_expiration_date": "2018-10-17",
+    "hazard_mitigation_specific_areas": "",
+    "mitigation_plan_type": "standard"
+}
