@@ -8,6 +8,8 @@ Currently, we're focusing on FEMA disaster declaration request forms (Form 010-0
 
 Initial results are promising with high overall parsing accuracy (90+%), though we've encountered some issues with checkbox detection and empty field handling that need improvement.
 
+See the `experiments` subdirectory for detailed results and updates.
+
 ## Components
 ### Storage System
 - `storage.py`: Manages document storage with UUID-based organization
