@@ -183,12 +183,10 @@ def fetch_report_details(url):
     try:
         response = requests.get(url, stream=True)
         if response.status_code == 200:
-            print(extract_text(response.content))
-            return True
-        return False
+            text = extract_text(response.content).strip()
+            return text
     except Exception as e:
         print(f"Error fetching report: {e}")
-        return False
 
 def main():
     parser = argparse.ArgumentParser(description='Search for FEMA Preliminary Damage Assessment Reports')
@@ -209,7 +207,9 @@ def main():
     print(format_reports(reports))
 
     for report in reports:
-        print(fetch_report_details(report['full_url']))
+        details = fetch_report_details(report['full_url'])
+        if details:
+            print(details[:100] + '...')
 
     if args.download and reports:
         print("Downloading reports is not implemented in this version.")
