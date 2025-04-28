@@ -178,6 +178,36 @@ class DeclarationStorage:
             self.update_registry(doc_id, existing_metadata)
         
         return existing_metadata
+
+    def update_declaration_id(self, doc_id, declaration_id):
+        """Update a document with a FEMA disaster declaration ID"""
+        metadata = {"fema_declaration_id": declaration_id}
+        return self.update_document_metadata(doc_id, metadata)
+
+    def store_pda_report(self, doc_id, pda_text, pda_metadata=None):
+        """
+        Store a Preliminary Damage Assessment report for a document
+        
+        Args:
+            doc_id: UUID of the document
+            pda_text: Full text of the PDA report
+            pda_metadata: Optional additional metadata about the PDA (source, date, etc.)
+            
+        Returns:
+            Updated document metadata
+        """
+        # Create base PDA metadata
+        pda_data = {
+            "pda_text": pda_text,
+            "pda_added_date": datetime.datetime.now().isoformat()
+        }
+        
+        # Add any additional metadata
+        if pda_metadata:
+            pda_data.update(pda_metadata)
+        
+        # Update the document
+        return self.update_document_metadata(doc_id, pda_data)
     
     def get_document_metadata(self, doc_id):
         """Get metadata for a specific document"""
