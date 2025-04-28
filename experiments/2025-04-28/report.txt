@@ -1,0 +1,106 @@
+================================================================================
+                               DOCUMENT ANALYSIS                                
+================================================================================
+
+Document: all-declarations_pages_417-420.pdf
+Fields with errors: incident_type, ia_accessibility_problems
+
+Document: all-declarations_pages_9-12.pdf
+Fields with errors: direct_federal_assistance_requested
+
+Document: all-declarations_pages_285-288.pdf
+Fields with errors: direct_federal_assistance_requested, supporting_documentation
+
+Document: all-declarations_pages_281-284.pdf
+Fields with errors: pa_programs_needed_per_area
+
+Document: all-declarations_pages_69-72.pdf
+Fields with errors: ia_requested_programs
+
+Document: all-declarations_pages_169-172.pdf
+Fields with errors: incident_type, hazard_mitigation_statewide, mitigation_plan_expiration_date, emergency_plan_execution_date
+
+Document: all-declarations_pages_337-340.pdf
+Fields with errors: resource_description, ia_requested_programs
+
+Total errors found: 13
+
+================================================================================
+                                ANALYSIS SUMMARY                                
+================================================================================
+
+Overall Accuracy: 97.59% (527/540 fields correct)
+
+--------------------------------------------------------------------------------
+                            CHECKBOX FIELD ANALYSIS                             
+--------------------------------------------------------------------------------
+Overall Checkbox Accuracy: 97.22% (105/108 fields)
+
+Accuracy by Document:
+  all-declarations_pages_265-268.pdf       100.00%
+  all-declarations_pages_169-172.pdf       88.89%
+  all-declarations_pages_1-4.pdf           100.00%
+  all-declarations_pages_285-288.pdf       88.89%
+  all-declarations_pages_69-72.pdf         100.00%
+  all-declarations_pages_5-8.pdf           100.00%
+  all-declarations_pages_417-420.pdf       100.00%
+  all-declarations_pages_337-340.pdf       100.00%
+  all-declarations_pages_281-284.pdf       100.00%
+  all-declarations_pages_9-12.pdf          88.89%
+  all-declarations_pages_177-180.pdf       100.00%
+  all-declarations_pages_29-32.pdf         100.00%
+
+--------------------------------------------------------------------------------
+                          MULTI-SELECT FIELD ANALYSIS                           
+--------------------------------------------------------------------------------
+Overall Multi-Select Accuracy: 89.58% (43/48 fields)
+
+Accuracy by Document:
+  all-declarations_pages_265-268.pdf       100.00%
+  all-declarations_pages_169-172.pdf       75.00%
+  all-declarations_pages_1-4.pdf           100.00%
+  all-declarations_pages_285-288.pdf       75.00%
+  all-declarations_pages_69-72.pdf         75.00%
+  all-declarations_pages_5-8.pdf           100.00%
+  all-declarations_pages_417-420.pdf       75.00%
+  all-declarations_pages_337-340.pdf       75.00%
+  all-declarations_pages_281-284.pdf       100.00%
+  all-declarations_pages_9-12.pdf          100.00%
+  all-declarations_pages_177-180.pdf       100.00%
+  all-declarations_pages_29-32.pdf         100.00%
+
+--------------------------------------------------------------------------------
+                         FIELD-LEVEL ACCURACY ANALYSIS                          
+--------------------------------------------------------------------------------
+
+Fields with Errors (Worst to Best):
+  direct_federal_assistance_requested      83.33% (10/12 correct)
+  ia_requested_programs                    83.33% (10/12 correct)
+  incident_type                            83.33% (10/12 correct)
+  emergency_plan_execution_date            91.67% (11/12 correct)
+  hazard_mitigation_statewide              91.67% (11/12 correct)
+  ia_accessibility_problems                91.67% (11/12 correct)
+  mitigation_plan_expiration_date          91.67% (11/12 correct)
+  pa_programs_needed_per_area              91.67% (11/12 correct)
+  resource_description                     91.67% (11/12 correct)
+  supporting_documentation                 91.67% (11/12 correct)
+
+--------------------------------------------------------------------------------
+                              ERROR TYPE ANALYSIS                               
+--------------------------------------------------------------------------------
+
+Error Distribution (13 total errors):
+  partial_match          5 (38.5%)
+  checkbox_error         3 (23.1%)
+  substring_match        2 (15.4%)
+  content_mismatch       2 (15.4%)
+  false_positive         1 (7.7%)
+
+Error Type Explanations:
+  partial_match       : List fields where some but not all elements match
+  checkbox_error      : Boolean fields with incorrect value
+  substring_match     : Text fields where one is contained within the other
+  content_mismatch    : Text fields with completely different content
+  false_positive      : Empty field in ground truth but content in parsed result
+
+================================================================================
