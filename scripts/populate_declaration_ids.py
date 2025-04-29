@@ -19,35 +19,69 @@ from typing import Dict, List, Optional, Tuple
 
 import requests
 
-from storage import DeclarationStorage
+from fema_agent.storage import DeclarationStorage
 
 STATE_ABBREVIATIONS = {
-    'Alabama': 'AL', 'Alaska': 'AK', 'Arizona': 'AZ', 'Arkansas': 'AR',
-    'California': 'CA', 'Colorado': 'CO', 'Connecticut': 'CT', 'Delaware': 'DE',
-    'District of Columbia': 'DC', 'Florida': 'FL', 'Georgia': 'GA', 'Hawaii': 'HI',
-    'Idaho': 'ID', 'Illinois': 'IL', 'Indiana': 'IN', 'Iowa': 'IA',
-    'Kansas': 'KS', 'Kentucky': 'KY', 'Louisiana': 'LA', 'Maine': 'ME',
-    'Maryland': 'MD', 'Massachusetts': 'MA', 'Michigan': 'MI', 'Minnesota': 'MN',
-    'Mississippi': 'MS', 'Missouri': 'MO', 'Montana': 'MT', 'Nebraska': 'NE',
-    'Nevada': 'NV', 'New Hampshire': 'NH', 'New Jersey': 'NJ', 'New Mexico': 'NM',
-    'New York': 'NY', 'North Carolina': 'NC', 'North Dakota': 'ND', 'Ohio': 'OH',
-    'Oklahoma': 'OK', 'Oregon': 'OR', 'Pennsylvania': 'PA', 'Rhode Island': 'RI',
-    'South Carolina': 'SC', 'South Dakota': 'SD', 'Tennessee': 'TN', 'Texas': 'TX',
-    'Utah': 'UT', 'Vermont': 'VT', 'Virginia': 'VA', 'Washington': 'WA',
-    'West Virginia': 'WV', 'Wisconsin': 'WI', 'Wyoming': 'WY',
-    
-    'American Samoa': 'AS' # American Samoa is treated like a state in the FEMA db
+    'alabama': 'AL', 'alaska': 'AK', 'arizona': 'AZ', 'arkansas': 'AR',
+    'california': 'CA', 'colorado': 'CO', 'connecticut': 'CT', 'delaware': 'DE',
+    'district of columbia': 'DC', 'florida': 'FL', 'georgia': 'GA', 'hawaii': 'HI',
+    'idaho': 'ID', 'illinois': 'IL', 'indiana': 'IN', 'iowa': 'IA',
+    'kansas': 'KS', 'kentucky': 'KY', 'louisiana': 'LA', 'maine': 'ME',
+    'maryland': 'MD', 'massachusetts': 'MA', 'michigan': 'MI', 'minnesota': 'MN',
+    'mississippi': 'MS', 'missouri': 'MO', 'montana': 'MT', 'nebraska': 'NE',
+    'nevada': 'NV', 'new hampshire': 'NH', 'new jersey': 'NJ', 'new mexico': 'NM',
+    'new york': 'NY', 'north carolina': 'NC', 'north dakota': 'ND', 'ohio': 'OH',
+    'oklahoma': 'OK', 'oregon': 'OR', 'pennsylvania': 'PA', 'rhode island': 'RI',
+    'south carolina': 'SC', 'south dakota': 'SD', 'tennessee': 'TN', 'texas': 'TX',
+    'utah': 'UT', 'vermont': 'VT', 'virginia': 'VA', 'washington': 'WA',
+    'west virginia': 'WV', 'wisconsin': 'WI', 'wyoming': 'WY',
+
+     # American Samoa, Guam, etc are treated like states in the FEMA db
+    'american samoa': 'AS',
+    'u.s. territory of guam': 'GU',
+    'northern mariana islands': 'MP'
+
 }
 
+TRIBES_TO_STATE = {
+    'oglala sioux tribe': 'SD',
+    'soboba band of luiseno indians': 'CA',
+    'navajo nation': 'AZ',
+    "tohono o'odham nation": 'AZ',
+    'ponca tribe of nebraska': 'NE',
+    'cahuilla band of indians': 'CA',
+    'sac & fox tribe of the mississippi of iowa': 'IA',
+    'confederated tribes of the colville reservation': 'WA',
+    'havasupai tribe': 'AZ',
+    'la jolla band of luiseno indians': 'CA'
+}
+
+
 def parse_state(state_str: str) -> str | None:
-    # Remove prefixes if they exist
-    state_clean = re.sub(r"^(State of|Commonwealth of)\s+", "", state_str).strip()
+    name = state_str.lower().strip()
+    
+    # Remove known prefixes
+    PREFIXES = [
+        'commonwealth of the ', 'commonwealth of ',
+        'the state of ', 'state of '
+        ]
+    for prefix in PREFIXES:
+        if name.startswith(prefix):
+            name = name.replace(prefix, '', 1)
+            break  # only one prefix should apply
+    
+    # Remove trailing " state" if present
+    if name.endswith(' state'):
+        name = name.replace(' state', '', 1)
+
+    name_clean = name.strip()
 
     # Try mapping to abbreviations, flagging if they don't exist
-    try:
-        abbr = STATE_ABBREVIATIONS[state_clean]
-        return abbr
-    except KeyError:
+    if name_clean in STATE_ABBREVIATIONS:
+        return STATE_ABBREVIATIONS[name_clean]
+    elif name_clean in TRIBES_TO_STATE:
+        return TRIBES_TO_STATE[name_clean]
+    else:
         return None
 
 
