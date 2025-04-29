@@ -96,15 +96,15 @@ def process_document(doc_id, info, storage_dir, force=False, delay=0.1):
             
         if report_text:
             # Store the report text in metadata
-            pda_metadata = {
-                'pda_report': report_text,
-                'pda_report_title': report['title'],
-                'pda_report_date': report['date'],
-                'pda_report_url': report['full_url'],
-                'pda_report_fetched_date': datetime.now().isoformat()
-            }
-            
-            storage.update_document_metadata(doc_id, pda_metadata)
+            storage.store_pda_report(
+                doc_id,
+                report_text,
+                pda_report_title=report['title'],
+                pda_report_date=report['date'],
+                pda_report_url=report['full_url'],
+                pda_report_fetched_date=datetime.now().isoformat()
+                )
+
             result['status'] = 'success'
             result['reports_fetched'] = 1
         else:
@@ -205,6 +205,111 @@ def process_storage_directory_parallel(storage_dir, force=False, workers=None, d
     print("\nProcessing complete!")
     return stats
 
+def process_multiple_report_documents(stats, storage_dir):
+    """
+    Process documents that have multiple PDA reports by allowing the user to select one
+    
+    Args:
+        stats (dict): Statistics about the processed documents
+        storage_dir (str): Path to the storage directory
+        
+    Returns:
+        dict: Updated statistics
+    """
+    if not stats['skipped']['multiple_reports']:
+        return stats  # No documents with multiple reports
+    
+    print("\n" + "="*80)
+    print(f"DOCUMENTS WITH MULTIPLE PDA REPORTS ({len(stats['skipped']['multiple_reports'])})")
+    print("="*80)
+    print("\nYou can select a specific report for each document:")
+    
+    storage = DeclarationStorage(storage_dir)
+    processed_docs = []  # Track which documents were processed
+    
+    # Process each document with multiple reports
+    for doc_info in stats['skipped']['multiple_reports']:
+        doc_id = doc_info['id']
+        
+        try:
+            # Get full metadata for the document
+            metadata = storage.get_document_metadata(doc_id)
+            
+            # Display document information
+            print("\n" + "-"*80)
+            print(f"Document: {doc_info['filename']}")
+            print(f"State: {metadata.get('state_or_tribe', 'Unknown')}")
+            print(f"Incident Begin Date: {metadata.get('incident_period_beginning_date', 'Unknown')}")
+            print(f"Request Date: {metadata.get('request_date', 'Unknown')}")
+            print(f"Request Purpose: {metadata.get('request_purpose', 'Unknown')}")
+            print("-"*80)
+            
+            # Display available reports
+            print("\nAvailable PDA Reports:")
+            for idx, (title, date, url) in enumerate(doc_info['reports'], 1):
+                print(f"{idx}. {title} ({date})")
+                print(f"   URL: {url}")
+            
+            # Prompt user for selection
+            print("\n0. Skip this document")
+            
+            choice = None
+            while choice is None:
+                try:
+                    choice = int(input("\nSelect a report (0 to skip): "))
+                    if choice < 0 or choice > len(doc_info['reports']):
+                        print(f"Invalid choice. Please enter a number between 0 and {len(doc_info['reports'])}")
+                        choice = None
+                except ValueError:
+                    print("Please enter a number.")
+                    choice = None
+            
+            # Process the user's choice
+            if choice == 0:
+                print("Skipping this document.")
+                continue
+            
+            # Get the selected report
+            selected_idx = choice - 1
+            selected_title, selected_date, selected_url = doc_info['reports'][selected_idx]
+            
+            # Fetch the report content
+            print(f"Fetching report {choice}...")
+            report_text = fetch_report_details(selected_url)
+            
+            if report_text:
+                # Store the report in the document metadata
+                storage.store_pda_report(
+                    doc_id,
+                    report_text,
+                    pda_report_title=selected_title,
+                    pda_report_date=selected_date,
+                    pda_report_url=selected_url,
+                    pda_report_fetched_date=datetime.now().isoformat()
+                )
+                
+                print(f"Successfully stored report for document {doc_id}")
+                
+                # Update statistics
+                stats['reports_fetched'] += 1
+                processed_docs.append(doc_id)
+            else:
+                print(f"Failed to fetch report content for document {doc_id}")
+                
+        except Exception as e:
+            print(f"Error processing document {doc_id}: {str(e)}")
+    
+    # Update statistics - remove successfully processed documents from the skipped list
+    if processed_docs:
+        stats['skipped']['multiple_reports'] = [
+            doc for doc in stats['skipped']['multiple_reports'] 
+            if doc['id'] not in processed_docs
+        ]
+        
+        print(f"\nSuccessfully processed {len(processed_docs)} documents with multiple reports")
+    
+    return stats
+
 def print_skipped_documents(stats):
     """Print details about skipped documents"""
     print("\n=== SKIPPED DOCUMENTS ===")
@@ -239,9 +344,7 @@ def print_skipped_documents(stats):
     
     # Already has report
     if stats['skipped']['already_has_report']:
-        print(f"\nDocuments that already have PDA reports ({len(stats['skipped']['already_has_report'])}):")
-        for doc in stats['skipped']['already_has_report']:
-            print(f"  - {doc['id']}: {doc['filename']}")
+        print(f"\nDocuments that already have PDA reports ({len(stats['skipped']['already_has_report'])})")
     
     # Errors
     if stats['skipped']['error']:
@@ -267,6 +370,10 @@ def main():
         storage_dir, 
         force=args.force,
     )
+
+    # Allow user to select reports for documents with multiple matches
+    if stats['skipped']['multiple_reports']:
+        stats = process_multiple_report_documents(stats, storage_dir)
     
     print("\nProcessing Summary:")
     print(f"Total documents: {stats['total']}")

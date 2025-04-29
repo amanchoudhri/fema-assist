@@ -184,7 +184,15 @@ class DeclarationStorage:
         metadata = {"fema_declaration_id": declaration_id}
         return self.update_document_metadata(doc_id, metadata)
 
-    def store_pda_report(self, doc_id, pda_text, pda_metadata=None):
+    def store_pda_report(
+        self,
+        doc_id,
+        pda_report,
+        pda_report_title: str = '',
+        pda_report_date: str = '',
+        pda_report_url: str = '',
+        pda_report_fetched_date: str = '',
+        ):
         """
         Store a Preliminary Damage Assessment report for a document
         
@@ -198,13 +206,12 @@ class DeclarationStorage:
         """
         # Create base PDA metadata
         pda_data = {
-            "pda_text": pda_text,
-            "pda_added_date": datetime.datetime.now().isoformat()
+            'pda_report': pda_report,
+            'pda_report_title': pda_report_title,
+            'pda_report_date': pda_report_date,
+            'pda_report_url': pda_report_url,
+            'pda_report_fetched_date': pda_report_fetched_date
         }
-        
-        # Add any additional metadata
-        if pda_metadata:
-            pda_data.update(pda_metadata)
         
         # Update the document
         return self.update_document_metadata(doc_id, pda_data)
