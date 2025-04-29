@@ -13,8 +13,8 @@ from collections import defaultdict
 import multiprocessing as mp
 from functools import partial
 
-from storage import DeclarationStorage
-from pull_pda import search_fema_pda_reports, fetch_report_details
+from fema_agent.storage import DeclarationStorage
+from fema_agent.pull_pda import search_fema_pda_reports, fetch_report_details
 
 def process_document(doc_id, info, storage_dir, force=False, delay=0.1):
     """
@@ -56,13 +56,16 @@ def process_document(doc_id, info, storage_dir, force=False, delay=0.1):
         # Extract FEMA disaster number
         disaster_num = metadata.get('fema_declaration_id')
         
-        if not disaster_num:
-            result['status'] = 'skipped'
-            result['reason'] = 'no_fema_id'
-            return doc_id, result
-            
-        # Search for PDA reports using disaster number
-        reports = search_fema_pda_reports(disaster_num=str(disaster_num))
+        if disaster_num:
+            # Search for PDA reports using disaster number
+            reports = search_fema_pda_reports(disaster_num=str(disaster_num))
+        else:
+            # Search for PDA reports using state and year
+            year = datetime.strptime(metadata['request_date'], '%Y-%m-%d').year
+            reports = search_fema_pda_reports(
+                    state=metadata['state_or_tribe'],
+                    year=year
+                    )
         
         if not reports:
             result['status'] = 'skipped'
