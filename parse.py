@@ -3,6 +3,7 @@ import json
 import tempfile
 import time
 import os
+import re
 
 from pathlib import Path
 from typing import Any, Optional
@@ -12,6 +13,7 @@ from docetl.api import Pipeline, Dataset, MapOp, ReduceOp, PipelineStep, Pipelin
 from docetl.operations.code_operations import CodeMapOperation
 
 from forms.fema_010_0_13 import FEMA_FORM_010_0_13
+from storage import DeclarationStorage
 
 def field_display(page: int) -> str:
     fields = [
@@ -50,6 +52,74 @@ def build_parse_op(page: int) -> MapOp:
         output={"schema": FEMA_FORM_010_0_13.get_field_schema_dict(page=page)}
         )
     return op
+
+def create_docetl_dataset_from_storage(storage_dir: str, temp_dir: str | None = None):
+    """
+    Create a DocETL-compatible dataset from a storage directory.
+    
+    Args:
+        storage_dir: Path to the storage directory
+        temp_dir: Path to use for the temporary dataset file (optional)
+        
+    Returns:
+        Tuple of (dataset path, dataset documents)
+    """
+    # Initialize storage
+    storage = DeclarationStorage(storage_dir)
+    storage_dir_path = Path(storage_dir).absolute()
+    
+    # Get all documents
+    documents = storage.get_all_documents()
+
+    # Prepare dataset
+    dataset = []
+    for doc_id in documents.keys():
+        # Get full metadata
+        try:
+            metadata = storage.get_document_metadata(doc_id)
+            
+            # Convert relative paths to absolute paths
+            metadata_copy = metadata.copy()
+            for key, value in metadata.items():
+                # Check if it's a file path field
+                is_page_number = bool(re.match(r"\Apage_\d+\Z", key))
+                if key in ["file_path", "pages"] or is_page_number:
+                    if key == "file_path" and value:
+                        metadata_copy[key] = str(storage_dir_path / value)
+                    elif key == "pages" and value:
+                        metadata_copy[key] = [str(storage_dir_path / p) for p in value]
+                    elif key.startswith("page_") and value:
+                        metadata_copy[key] = str(storage_dir_path / value)
+            
+            dataset.append(metadata_copy)
+        except Exception as e:
+            print(f"Error retrieving metadata for {doc_id}: {e}")
+    
+    # # Prepare dataset
+    # dataset = []
+    # for doc_id, _ in documents.items():
+    #     # Get full metadata
+    #     try:
+    #         metadata = storage.get_document_metadata(doc_id)
+    #         dataset.append(metadata)
+    #     except Exception as e:
+    #         print(f"Error retrieving metadata for {doc_id}: {e}")
+    
+    # Determine output path
+    if temp_dir:
+        os.makedirs(temp_dir, exist_ok=True)
+        dataset_path = Path(temp_dir) / f"{Path(storage_dir).name}_docetl.json"
+    else:
+        # Create a temporary file
+        temp_file = tempfile.NamedTemporaryFile(delete=False, suffix='.json')
+        dataset_path = Path(temp_file.name)
+        temp_file.close()
+    
+    # Save dataset
+    with open(dataset_path, 'w') as f:
+        json.dump(dataset, f, indent=2)
+    
+    return dataset_path, dataset
 
 def parse_dataset(
         dataset_path: Path,
@@ -201,14 +271,64 @@ def process_dataset_with_rate_limit(
             except:
                 pass
 
+def parse_storage_directory(
+        storage_dir: str,
+        output_path: str,
+        model: str,
+        temp_dir: str | None = None,
+        avoid_rate_limit: bool = False,
+        chunk_size: int = 8,
+        sleep_time: int = 60
+        ):
+    """
+    Parse all declarations in a storage directory.
+    
+    Args:
+        storage_dir: Path to the storage directory
+        output_path: Path where parsed results will be saved
+        model: Model to use for parsing
+        temp_dir: Directory to store temporary files (optional)
+        avoid_rate_limit: Whether to process in batches with delays
+        chunk_size: Number of documents per batch if avoiding rate limits
+        sleep_time: Seconds to sleep between batches
+    """
+    print(f"Creating DocETL dataset from storage directory: {storage_dir}")
+    dataset_path, documents = create_docetl_dataset_from_storage(storage_dir, temp_dir)
+    
+    print(f"Created dataset with {len(documents)} documents at {dataset_path}")
+    
+    if avoid_rate_limit:
+        process_dataset_with_rate_limit(
+            dataset_path=dataset_path,
+            outpath=output_path,
+            model=model,
+            chunk_size=chunk_size,
+            sleep_time=sleep_time
+        )
+    else:
+        parse_dataset(
+            dataset_path=dataset_path,
+            output_path=output_path,
+            model=model
+        )
+    
+    print(f"Processing complete. Results saved to {output_path}")
+    
+    # Clean up temporary dataset file
+    if not temp_dir:  # Only remove if we created a temp file
+        try:
+            os.remove(dataset_path)
+        except:
+            pass
+
 def main():
     # Set up argument parser
     parser = argparse.ArgumentParser(
         description='Parse FEMA disaster declaration forms using DocETL'
         )
     parser.add_argument(
-        '--dataset', type=str, required=True, 
-        help='Dataset to use: "first_three", "all", "test_set", or path to a JSON file'
+        '--storage-dir', type=str, required=True, 
+        help='Path to the storage directory containing declarations'
         )
     parser.add_argument('--outpath', type=str, required=True,
                         help='Path where output JSON will be saved')
@@ -229,32 +349,13 @@ def main():
 
     model = MODEL_MAPPING[args.model]
     
-    # Pre-defined datasets
-    DATASETS = {
-        'first_three': Dataset(type="file", path="first_three_docetl.json"),
-        'all': Dataset(type="file", path="all-declarations_docetl.json"),
-        'test_set': Dataset(type="file", path="test-set-declarations_docetl.json")
-    }
-    
-    if args.dataset in DATASETS:
-        dataset_path = Path(DATASETS[args.dataset].path)
-    else:
-        # Assume it's a path to a JSON file
-        dataset_path = Path(args.dataset)
+    parse_storage_directory(
+        args.storage_dir,
+        args.outpath,
+        model,
+        avoid_rate_limit=args.avoid_rate_limit
+        )
 
-    if args.avoid_rate_limit:
-        process_dataset_with_rate_limit(
-            dataset_path, 
-            args.outpath, 
-            model
-        )
-    else:
-        # Just process the dataset directly
-        parse_dataset(
-            dataset_path=dataset_path,
-            output_path=args.outpath,
-            model=model
-        )
 
 if __name__ == "__main__":
     main()
