@@ -11,3 +11,10 @@ wheels/
 
 # API keys, etc
 .env
+
+# Data
+data/raw
+data/processed
+data/docetl_output
+
+.DS_Store
