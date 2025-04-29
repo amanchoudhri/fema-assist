@@ -77,9 +77,12 @@ def create_docetl_dataset_from_storage(storage_dir: str, temp_dir: str | None = 
         # Get full metadata
         try:
             metadata = storage.get_document_metadata(doc_id)
-            
-            # Convert relative paths to absolute paths
             metadata_copy = metadata.copy()
+
+            # Add the uuid
+            metadata_copy["uuid"] = doc_id
+
+            # Convert relative paths to absolute paths
             for key, value in metadata.items():
                 # Check if it's a file path field
                 is_page_number = bool(re.match(r"\Apage_\d+\Z", key))
@@ -94,16 +97,6 @@ def create_docetl_dataset_from_storage(storage_dir: str, temp_dir: str | None = 
             dataset.append(metadata_copy)
         except Exception as e:
             print(f"Error retrieving metadata for {doc_id}: {e}")
-    
-    # # Prepare dataset
-    # dataset = []
-    # for doc_id, _ in documents.items():
-    #     # Get full metadata
-    #     try:
-    #         metadata = storage.get_document_metadata(doc_id)
-    #         dataset.append(metadata)
-    #     except Exception as e:
-    #         print(f"Error retrieving metadata for {doc_id}: {e}")
     
     # Determine output path
     if temp_dir:
@@ -321,6 +314,64 @@ def parse_storage_directory(
         except:
             pass
 
+
+def update_storage_with_results(storage_dir: str, results_path: str, dry_run: bool = False):
+    """
+    Update the storage system with parsed results.
+    
+    Args:
+        storage_dir: Path to the storage directory
+        results_path: Path to the parsed results JSON
+        dry_run: If True, don't actually update the storage
+    
+    Returns:
+        Number of documents updated
+    """
+    # Initialize storage
+    storage = DeclarationStorage(storage_dir)
+    
+    # Load results
+    with open(results_path, 'r') as f:
+        results = json.load(f)
+    
+    updated_count = 0
+    
+    # Update each document
+    for doc_data in results:
+        doc_id = doc_data.get("uuid")
+        if not doc_id:
+            print(f"Warning: Document missing UUID, skipping")
+            continue
+        
+        # Create metadata dictionary excluding storage-specific fields
+        metadata = {}
+        excluded_fields = ["uuid", "file_path", "original_filename", "page_count", 
+                          "import_date", "pages"]
+        
+        # Also exclude page_N keys
+        page_prefixes = ["page_"]
+        
+        for key, value in doc_data.items():
+            # Skip excluded fields and page paths
+            if key in excluded_fields or any(key.startswith(prefix) for prefix in page_prefixes):
+                continue
+            
+            metadata[key] = value
+        
+        if dry_run:
+            print(f"Would update document {doc_id} with {len(metadata)} metadata fields")
+        else:
+            try:
+                # Update the document metadata
+                storage.update_document_metadata(doc_id, metadata)
+                updated_count += 1
+                print(f"Updated document {doc_id} with {len(metadata)} metadata fields")
+            except ValueError as e:
+                print(f"Error updating document {doc_id}: {str(e)}")
+    
+    return updated_count
+
+
 def main():
     # Set up argument parser
     parser = argparse.ArgumentParser(
@@ -337,6 +388,10 @@ def main():
                         help='Model to use for parsing')
     parser.add_argument('--avoid-rate-limit', action='store_true',
                         help='Process in smaller batches with pauses to avoid rate limits')
+    parser.add_argument('--update-storage', action='store_true',
+                        help='Update storage with parsed results')
+    parser.add_argument('--dry-run', action='store_true',
+                        help='Don\'t actually update storage (only with --update-storage)')
     
     args = parser.parse_args()
     
@@ -355,6 +410,19 @@ def main():
         model,
         avoid_rate_limit=args.avoid_rate_limit
         )
+
+    # Optionally update storage with results
+    if args.update_storage:
+        print("\nUpdating storage with parsed results...")
+        updated = update_storage_with_results(
+            storage_dir=args.storage_dir,
+            results_path=args.outpath,
+            dry_run=args.dry_run
+        )
+        if args.dry_run:
+            print(f"Dry run complete. Would have updated {updated} documents.")
+        else:
+            print(f"Successfully updated {updated} documents in storage.")
 
 
 if __name__ == "__main__":
