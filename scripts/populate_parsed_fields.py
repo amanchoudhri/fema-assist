@@ -7,9 +7,13 @@ import argparse
 import json
 from pathlib import Path
 
-from storage import DeclarationStorage
+from fema_agent.storage import DeclarationStorage
 
-def update_storage_from_json(json_path, storage_dir="declarations", dry_run=False):
+def update_storage_from_json(
+        json_path,
+        storage_dir: str = "declarations",
+        ground_truth: bool = False,
+        dry_run: bool = False):
     """
     Update the storage system with metadata from a JSON file
     
@@ -53,7 +57,10 @@ def update_storage_from_json(json_path, storage_dir="declarations", dry_run=Fals
                 continue
                 
             metadata[key] = value
-        
+
+        # Add in flag to indicate whether the fields are to be considered ground-truth
+        metadata['ground_truth'] = ground_truth
+
         if dry_run:
             print(f"  Would update document {doc_id} with {len(metadata)} metadata fields")
             # for key, value in sorted(metadata.items()):
@@ -74,6 +81,8 @@ def main():
     parser.add_argument("json_file", help="Path to the JSON file with parsed data")
     parser.add_argument("--storage-dir", default="declarations", 
                       help="Base directory for the storage system (default: declarations)")
+    parser.add_argument("--ground-truth", action='store_true', 
+                      help="Record that the fields are human-verified and to be considered ground truth.")
     parser.add_argument("--dry-run", action="store_true", 
                       help="Don't actually update storage, just print what would be updated")
     
@@ -83,7 +92,8 @@ def main():
         count = update_storage_from_json(
             args.json_file, 
             args.storage_dir,
-            args.dry_run
+            ground_truth=args.ground_truth,
+            dry_run=args.dry_run
         )
         
         if args.dry_run:
