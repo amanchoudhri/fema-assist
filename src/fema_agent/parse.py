@@ -12,8 +12,8 @@ from docetl.api import Pipeline, Dataset, MapOp, ReduceOp, PipelineStep, Pipelin
 
 from docetl.operations.code_operations import CodeMapOperation
 
-from forms.fema_010_0_13 import FEMA_FORM_010_0_13
-from storage import DeclarationStorage
+from fema_agent.forms.fema_010_0_13 import FEMA_FORM_010_0_13
+from fema_agent.storage import DeclarationStorage
 
 def field_display(page: int) -> str:
     fields = [
