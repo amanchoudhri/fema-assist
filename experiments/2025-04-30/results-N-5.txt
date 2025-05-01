@@ -1,0 +1,161 @@
+
+================================================================================
+                               DOCUMENT ANALYSIS                                
+================================================================================
+
+Document: all-declarations_pages_417-420.pdf
+Fields with errors: population, coordinator_designation, representative_designation, request_purpose, incident_period_beginning_date, incident_period_end_date, incident_period_continuing, incident_type, incident_type_other_details, damage_description, resource_description, ia_requested, ia_request_date, ia_start_date, ia_end_date, ia_accessibility_problems, pa_requested, pa_request_date, pa_accessibility_problems, ia_requested_programs, ia_programs_needed_per_area, ia_affected_tribes, pa_categories_requested, pa_programs_needed_per_area, pa_affected_tribes, debris_removal_needed, direct_federal_assistance_requested, direct_federal_assistance_types, direct_federal_assistance_reasons, snow_assistance_requested, snow_assistance_jurisdictions, hazard_mitigation_statewide, hazard_mitigation_specific_areas, mitigation_plan_expiration_date, mitigation_plan_type, other_agency_requirements_anticipated, certification_completed, emergency_plan_execution_date, supporting_documentation, additional_documentation_details
+
+Document: all-declarations_pages_9-12.pdf
+Fields with errors: request_date, population, coordinator_designation, representative_designation, request_purpose, incident_period_continuing, incident_type, incident_type_other_details, damage_description, resource_description, ia_request_date, ia_end_date, ia_accessibility_problems, pa_requested, pa_request_date, pa_start_date, pa_end_date, pa_accessibility_problems, ia_requested_programs, ia_programs_needed_per_area, ia_affected_tribes, pa_categories_requested, pa_programs_needed_per_area, pa_affected_tribes, debris_removal_needed, direct_federal_assistance_types, direct_federal_assistance_reasons, snow_assistance_requested, snow_assistance_jurisdictions, hazard_mitigation_statewide, hazard_mitigation_specific_areas, mitigation_plan_expiration_date, mitigation_plan_type, other_agency_requirements_anticipated, certification_completed, supporting_documentation, additional_documentation_details
+
+Document: all-declarations_pages_265-268.pdf
+Fields with errors: request_date, state_or_tribe, population, governor_name, coordinator_designation, representative_designation, request_purpose, incident_period_continuing, incident_type, incident_type_other_details, damage_description, resource_description, ia_request_date, ia_start_date, ia_end_date, ia_accessibility_problems, pa_requested, pa_request_date, pa_end_date, pa_accessibility_problems, ia_requested_programs, ia_programs_needed_per_area, ia_affected_tribes, pa_categories_requested, pa_programs_needed_per_area, pa_affected_tribes, debris_removal_needed, direct_federal_assistance_types, direct_federal_assistance_reasons, snow_assistance_requested, snow_assistance_jurisdictions, hazard_mitigation_statewide, hazard_mitigation_specific_areas, mitigation_plan_expiration_date, mitigation_plan_type, other_agency_requirements_anticipated, certification_completed, supporting_documentation, additional_documentation_details
+
+Document: all-declarations_pages_285-288.pdf
+Fields with errors: population, coordinator_designation, representative_designation, request_purpose, incident_period_continuing, incident_type, incident_type_other_details, damage_description, resource_description, ia_requested, ia_request_date, ia_start_date, ia_end_date, ia_accessibility_problems, pa_requested, pa_request_date, pa_start_date, pa_end_date, pa_accessibility_problems, ia_requested_programs, ia_programs_needed_per_area, ia_affected_tribes, pa_categories_requested, pa_programs_needed_per_area, pa_affected_tribes, debris_removal_needed, direct_federal_assistance_types, direct_federal_assistance_reasons, snow_assistance_requested, snow_assistance_jurisdictions, hazard_mitigation_statewide, hazard_mitigation_specific_areas, mitigation_plan_expiration_date, mitigation_plan_type, other_agency_requirements_anticipated, certification_completed, supporting_documentation, additional_documentation_details
+
+Document: all-declarations_pages_281-284.pdf
+Fields with errors: request_date, state_or_tribe, population, governor_name, coordinator_designation, representative_designation, request_purpose, incident_type, incident_type_other_details, damage_description, resource_description, ia_requested, ia_request_date, ia_start_date, ia_end_date, ia_accessibility_problems, pa_requested, pa_request_date, pa_end_date, pa_accessibility_problems, ia_requested_programs, ia_programs_needed_per_area, ia_affected_tribes, pa_categories_requested, pa_programs_needed_per_area, pa_affected_tribes, debris_removal_needed, direct_federal_assistance_types, direct_federal_assistance_reasons, snow_assistance_requested, snow_assistance_jurisdictions, hazard_mitigation_statewide, hazard_mitigation_specific_areas, mitigation_plan_expiration_date, mitigation_plan_type, other_agency_requirements_anticipated, certification_completed, emergency_plan_execution_date, supporting_documentation, additional_documentation_details
+
+Document: all-declarations_pages_5-8.pdf
+Fields with errors: state_or_tribe, population, coordinator_designation, representative_designation, request_purpose, incident_period_end_date, incident_type, incident_type_other_details, damage_description, resource_description, ia_requested, ia_request_date, ia_start_date, ia_end_date, ia_accessibility_problems, pa_requested, pa_request_date, pa_end_date, pa_accessibility_problems, ia_requested_programs, ia_programs_needed_per_area, ia_affected_tribes, pa_categories_requested, pa_programs_needed_per_area, pa_affected_tribes, direct_federal_assistance_types, direct_federal_assistance_reasons, snow_assistance_jurisdictions, hazard_mitigation_statewide, hazard_mitigation_specific_areas, mitigation_plan_expiration_date, mitigation_plan_type, other_agency_requirements_anticipated, certification_completed, supporting_documentation, additional_documentation_details
+
+Document: all-declarations_pages_69-72.pdf
+Fields with errors: population, coordinator_designation, representative_designation, request_purpose, incident_type, incident_type_other_details, damage_description, resource_description, ia_request_date, ia_start_date, ia_end_date, ia_accessibility_problems, pa_requested, pa_request_date, pa_start_date, pa_end_date, pa_accessibility_problems, ia_requested_programs, ia_programs_needed_per_area, ia_affected_tribes, pa_categories_requested, pa_programs_needed_per_area, pa_affected_tribes, debris_removal_needed, direct_federal_assistance_types, direct_federal_assistance_reasons, snow_assistance_requested, snow_assistance_jurisdictions, hazard_mitigation_statewide, hazard_mitigation_specific_areas, mitigation_plan_expiration_date, mitigation_plan_type, other_agency_requirements_anticipated, certification_completed, supporting_documentation, additional_documentation_details
+
+Document: all-declarations_pages_177-180.pdf
+Fields with errors: state_or_tribe, population, coordinator_designation, representative_designation, request_purpose, incident_period_continuing, incident_type, incident_type_other_details, damage_description, resource_description, ia_requested, ia_request_date, ia_start_date, ia_end_date, ia_accessibility_problems, pa_requested, pa_request_date, pa_start_date, pa_accessibility_problems, ia_requested_programs, ia_programs_needed_per_area, ia_affected_tribes, pa_categories_requested, pa_programs_needed_per_area, pa_affected_tribes, debris_removal_needed, direct_federal_assistance_types, direct_federal_assistance_reasons, snow_assistance_requested, snow_assistance_jurisdictions, hazard_mitigation_statewide, hazard_mitigation_specific_areas, mitigation_plan_expiration_date, mitigation_plan_type, other_agency_requirements_anticipated, certification_completed, supporting_documentation, additional_documentation_details
+
+Document: all-declarations_pages_1-4.pdf
+Fields with errors: state_or_tribe, population, coordinator_designation, representative_designation, request_purpose, incident_period_continuing, incident_type, incident_type_other_details, damage_description, resource_description, ia_requested, ia_request_date, ia_start_date, ia_end_date, ia_accessibility_problems, pa_requested, pa_request_date, pa_start_date, pa_end_date, pa_accessibility_problems, ia_requested_programs, ia_programs_needed_per_area, ia_affected_tribes, pa_categories_requested, pa_programs_needed_per_area, pa_affected_tribes, direct_federal_assistance_types, direct_federal_assistance_reasons, snow_assistance_jurisdictions, hazard_mitigation_statewide, hazard_mitigation_specific_areas, mitigation_plan_expiration_date, mitigation_plan_type, other_agency_requirements_anticipated, certification_completed, supporting_documentation, additional_documentation_details
+
+Document: all-declarations_pages_169-172.pdf
+Fields with errors: request_date, state_or_tribe, population, governor_name, coordinator_designation, representative_designation, request_purpose, incident_period_continuing, incident_type, incident_type_other_details, damage_description, resource_description, ia_request_date, ia_start_date, ia_end_date, ia_accessibility_problems, pa_requested, pa_request_date, pa_accessibility_problems, ia_requested_programs, ia_programs_needed_per_area, ia_affected_tribes, pa_categories_requested, pa_programs_needed_per_area, pa_affected_tribes, direct_federal_assistance_requested, direct_federal_assistance_types, direct_federal_assistance_reasons, snow_assistance_jurisdictions, hazard_mitigation_statewide, hazard_mitigation_specific_areas, mitigation_plan_expiration_date, mitigation_plan_type, other_agency_requirements_anticipated, emergency_plan_execution_date, supporting_documentation, additional_documentation_details
+
+Document: all-declarations_pages_29-32.pdf
+Fields with errors: population, coordinator_designation, representative_designation, request_purpose, incident_period_continuing, incident_type, incident_type_other_details, damage_description, resource_description, ia_request_date, ia_accessibility_problems, pa_requested, pa_request_date, pa_start_date, pa_end_date, pa_accessibility_problems, ia_requested_programs, ia_programs_needed_per_area, ia_affected_tribes, pa_categories_requested, pa_programs_needed_per_area, pa_affected_tribes, debris_removal_needed, direct_federal_assistance_types, direct_federal_assistance_reasons, snow_assistance_requested, snow_assistance_jurisdictions, hazard_mitigation_statewide, hazard_mitigation_specific_areas, mitigation_plan_expiration_date, mitigation_plan_type, other_agency_requirements_anticipated, certification_completed, emergency_plan_execution_date, supporting_documentation, additional_documentation_details
+
+Document: all-declarations_pages_337-340.pdf
+Fields with errors: state_or_tribe, population, coordinator_designation, representative_designation, request_purpose, incident_period_end_date, incident_period_continuing, incident_type, incident_type_other_details, damage_description, resource_description, ia_requested, ia_request_date, ia_end_date, ia_accessibility_problems, pa_requested, pa_request_date, pa_start_date, pa_accessibility_problems, ia_requested_programs, ia_programs_needed_per_area, ia_affected_tribes, pa_categories_requested, pa_programs_needed_per_area, pa_affected_tribes, debris_removal_needed, direct_federal_assistance_types, direct_federal_assistance_reasons, snow_assistance_requested, snow_assistance_jurisdictions, hazard_mitigation_statewide, hazard_mitigation_specific_areas, mitigation_plan_expiration_date, mitigation_plan_type, other_agency_requirements_anticipated, certification_completed, supporting_documentation, additional_documentation_details
+
+Total errors found: 452
+
+================================================================================
+                                ANALYSIS SUMMARY                                
+================================================================================
+
+Overall Accuracy: 16.30% (88/540 fields correct)
+
+--------------------------------------------------------------------------------
+                            CHECKBOX FIELD ANALYSIS                             
+--------------------------------------------------------------------------------
+Overall Checkbox Accuracy: 23.15% (25/108 fields)
+
+Accuracy by Document:
+  all-declarations_pages_265-268.pdf       22.22%
+  all-declarations_pages_169-172.pdf       44.44%
+  all-declarations_pages_1-4.pdf           33.33%
+  all-declarations_pages_285-288.pdf       11.11%
+  all-declarations_pages_69-72.pdf         33.33%
+  all-declarations_pages_5-8.pdf           44.44%
+  all-declarations_pages_417-420.pdf       0.00%
+  all-declarations_pages_337-340.pdf       11.11%
+  all-declarations_pages_281-284.pdf       22.22%
+  all-declarations_pages_9-12.pdf          22.22%
+  all-declarations_pages_177-180.pdf       11.11%
+  all-declarations_pages_29-32.pdf         22.22%
+
+--------------------------------------------------------------------------------
+                          MULTI-SELECT FIELD ANALYSIS                           
+--------------------------------------------------------------------------------
+Overall Multi-Select Accuracy: 0.00% (0/48 fields)
+
+Accuracy by Document:
+  all-declarations_pages_265-268.pdf       0.00%
+  all-declarations_pages_169-172.pdf       0.00%
+  all-declarations_pages_1-4.pdf           0.00%
+  all-declarations_pages_285-288.pdf       0.00%
+  all-declarations_pages_69-72.pdf         0.00%
+  all-declarations_pages_5-8.pdf           0.00%
+  all-declarations_pages_417-420.pdf       0.00%
+  all-declarations_pages_337-340.pdf       0.00%
+  all-declarations_pages_281-284.pdf       0.00%
+  all-declarations_pages_9-12.pdf          0.00%
+  all-declarations_pages_177-180.pdf       0.00%
+  all-declarations_pages_29-32.pdf         0.00%
+
+--------------------------------------------------------------------------------
+                         FIELD-LEVEL ACCURACY ANALYSIS                          
+--------------------------------------------------------------------------------
+
+Fields with Errors (Worst to Best):
+  additional_documentation_details         0.00% (0/12 correct)
+  incident_type_other_details              0.00% (0/12 correct)
+  mitigation_plan_expiration_date          0.00% (0/12 correct)
+  mitigation_plan_type                     0.00% (0/12 correct)
+  other_agency_requirements_anticipated    0.00% (0/12 correct)
+  pa_accessibility_problems                0.00% (0/12 correct)
+  pa_affected_tribes                       0.00% (0/12 correct)
+  pa_categories_requested                  0.00% (0/12 correct)
+  pa_programs_needed_per_area              0.00% (0/12 correct)
+  pa_request_date                          0.00% (0/12 correct)
+  pa_requested                             0.00% (0/12 correct)
+  population                               0.00% (0/12 correct)
+  representative_designation               0.00% (0/12 correct)
+  request_purpose                          0.00% (0/12 correct)
+  resource_description                     0.00% (0/12 correct)
+  snow_assistance_jurisdictions            0.00% (0/12 correct)
+  incident_type                            0.00% (0/12 correct)
+  ia_requested_programs                    0.00% (0/12 correct)
+  supporting_documentation                 0.00% (0/12 correct)
+  ia_request_date                          0.00% (0/12 correct)
+  ia_programs_needed_per_area              0.00% (0/12 correct)
+  ia_affected_tribes                       0.00% (0/12 correct)
+  ia_accessibility_problems                0.00% (0/12 correct)
+  hazard_mitigation_statewide              0.00% (0/12 correct)
+  hazard_mitigation_specific_areas         0.00% (0/12 correct)
+  coordinator_designation                  0.00% (0/12 correct)
+  damage_description                       0.00% (0/12 correct)
+  direct_federal_assistance_types          0.00% (0/12 correct)
+  direct_federal_assistance_reasons        0.00% (0/12 correct)
+  certification_completed                  8.33% (1/12 correct)
+  ia_end_date                              8.33% (1/12 correct)
+  ia_start_date                            25.00% (3/12 correct)
+  snow_assistance_requested                25.00% (3/12 correct)
+  incident_period_continuing               25.00% (3/12 correct)
+  debris_removal_needed                    25.00% (3/12 correct)
+  pa_end_date                              33.33% (4/12 correct)
+  ia_requested                             41.67% (5/12 correct)
+  state_or_tribe                           41.67% (5/12 correct)
+  pa_start_date                            41.67% (5/12 correct)
+  emergency_plan_execution_date            66.67% (8/12 correct)
+  request_date                             66.67% (8/12 correct)
+  governor_name                            75.00% (9/12 correct)
+  incident_period_end_date                 75.00% (9/12 correct)
+  direct_federal_assistance_requested      83.33% (10/12 correct)
+  incident_period_beginning_date           91.67% (11/12 correct)
+
+--------------------------------------------------------------------------------
+                              ERROR TYPE ANALYSIS                               
+--------------------------------------------------------------------------------
+
+Error Distribution (452 total errors):
+  type_mismatch        151 (33.4%)
+  content_mismatch     129 (28.5%)
+  checkbox_error        83 (18.4%)
+  format_error          35 (7.7%)
+  false_positive        35 (7.7%)
+  complete_mismatch     13 (2.9%)
+  substring_match        6 (1.3%)
+
+Error Type Explanations:
+  type_mismatch       : Different data types between ground truth and parsed result
+  content_mismatch    : Text fields with completely different content
+  checkbox_error      : Boolean fields with incorrect value
+  format_error        : Expected data type mismatch
+  false_positive      : Empty field in ground truth but content in parsed result
+  complete_mismatch   : List fields with no common elements
+  substring_match     : Text fields where one is contained within the other
+
+================================================================================
